@@ -14,10 +14,10 @@ export const useHomeFetch = () => {
       const result = await (await fetch(endpoint)).json();
       setState(prev => ({
         ...prev,
-        filmes: [...result.results],
+        movies: [...result.results],
         heroImage: prev.heroImage || result.results[0],
-        paginaAtual: result.page,
-        totalPaginas: result.total_pages,
+        currentPage: result.page,
+        totalPages: result.total_pages,
       }));
     } catch (error) {
       setError(true);
